@@ -1,6 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal />
+  <Modal :header="header" :text = "text" theme="sale" />
   <input types="text" ref="name">
   <button @click="handleClick">click me</button>
 </template>
@@ -15,7 +15,9 @@ export default {
   },
   data(){
     return{
-      title: "My first view app :)"
+      title: "My first view app :)",
+      header: "Sign up for the Giveaway!",
+      text: "Grab your ninja swag for half price!",
     }
   },
   methods:{
