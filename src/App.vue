@@ -1,5 +1,7 @@
 <template>
   <h1>{{ title }}</h1>
+  <input types="text" ref="name">
+  <button @click="handleClick">click me</button>
 </template>
 
 <script>
@@ -11,7 +13,15 @@ export default {
     return{
       title: "My first view app :)"
     }
+  },
+  methods:{
+    handleClick(){
+      console.log(this.$refs.name.value)
+      this.$refs.name.classList.add('active')
+      this.$refs.name.focus()
+    }
   }
+
 }
 </script>
 
