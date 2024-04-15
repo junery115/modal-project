@@ -1,8 +1,10 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal :header="header" :text = "text" theme="sale" />
-  <input types="text" ref="name">
-  <button @click="handleClick">click me</button>
+  <p>Welcome...</p>
+  <div v-if="showModal">
+    <Modal :header="header" :text = "text" theme="sale"  @close="toggleModal"/>
+  </div>
+  <button @click="toggleModal">Show Modal</button>
 </template>
 
 <script>
@@ -18,6 +20,7 @@ export default {
       title: "My first view app :)",
       header: "Sign up for the Giveaway!",
       text: "Grab your ninja swag for half price!",
+      showModal: false,
     }
   },
   methods:{
@@ -25,6 +28,9 @@ export default {
       console.log(this.$refs.name.value)
       this.$refs.name.classList.add('active')
       this.$refs.name.focus()
+    },
+    toggleModal() {
+      this.showModal = !this.showModal
     }
   }
 
